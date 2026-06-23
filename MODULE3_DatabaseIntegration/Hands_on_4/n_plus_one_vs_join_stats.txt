@@ -1,0 +1,10 @@
+#output of 56 and 57
+N+1 QUERY STATS
+Query executed in 0.0168 seconds.
+Number of records fetched: 13
+Number of queries executed: 14
+
+JOIN QUERY STATS
+Join query executed in 0.0237 seconds.
+Number of records fetched: 13
+Number of queries executed: 1
