@@ -1,0 +1,6 @@
+# Ignore local Python virtual environments
+myvenv/
+venv/
+.venv/
+__pycache__/
+*.pyc
