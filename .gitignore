@@ -1,7 +1,55 @@
-# Ignore local Python virtual environments
+# ==============================================================================
+# DIGITAL NURTURE 5.0 - GLOBAL PYTHON & ORM GITIGNORE
+# ==============================================================================
+
+# --- Python Core Environments & Interpreters ---
 myvenv/
 venv/
 .venv/
+env/
+ENV/
+bin/
+lib/
+include/
+share/
+
+# --- Python Compiled Bytecode & Runtime Caches ---
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.cache/
+
+# --- IDE & Editor Sandbox Files ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# --- Database Engines, Backups, & Private Secrets ---
+# NEVER commit your plain-text database credentials to a shared remote repo!
+alembic.ini
+
+# Ignore local database storage files or backups if spawned locally
+*.sql
+*.sqlite3
+*.db
+*.dump
+*.log
+
+# --- Course Source Documents & Training Books ---
+*.pdf
 DatabaseIntegration_HandsOn.pdf
+FrontendDevelopment_HandsOn.pdf
+PythonBackendFrameworks_HandsOn.pdf
+SeleniumBasics_HandsOn.pdf
+
+# --- Operating System Artifacts ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
