@@ -15,7 +15,8 @@ share/
 
 
 
-# --- Environment files
+# Secrets
+alembic.ini
 .env
 
 # --- Python Compiled Bytecode & Runtime Caches ---
