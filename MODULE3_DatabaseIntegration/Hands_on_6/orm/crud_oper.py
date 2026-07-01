@@ -1,6 +1,6 @@
 import datetime
 from db_init import SessionLocal
-from models import Department, Student, Course, Enrollment
+from models import Department, Student, Course, Enrollment, CourseSchedule
 
 #81 and 82 Seeding the database with initial data
 def mass_seed_database():
