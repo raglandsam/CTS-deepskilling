@@ -2,6 +2,7 @@ import datetime
 from db_init import SessionLocal
 from models import Department, Student, Course, Enrollment
 
+#81 and 82 Seeding the database with initial data
 def mass_seed_database():
     session = SessionLocal()
     try:
@@ -47,5 +48,70 @@ def mass_seed_database():
     finally:
         session.close()
 
+
+#83 function to read students in Computer Science department
+def read_83():
+    session=SessionLocal()
+    try:
+        print("\nReading students in Computer Science")
+        cs_students=session.query(Student).join(Department).filter(Department.dept_name=='Computer Science').all()
+        for student in cs_students:
+            print(f"Student : {student.first_name}\t{student.last_name}\t{student.email}\t{student.date_of_birth}\t{student.enrollment_year}")
+    except Exception as e:
+        print(f"\n[ERROR] Read operation failed. Reason: {e}")
+    finally:   
+        session.close()
+#84 function to read ALL ENROLLMENTS and print students name and course name
+def read_84():
+    session= SessionLocal()
+    try :
+         print("\nReading all enrollments with student names and course names")
+         read_result=session.query(Enrollment).join(Student).join(Course).all()
+         for enrollment in read_result:
+             print(f"Enrollment Details {enrollment.Student.first_name} {enrollment.Student.last_name} enrolled in {enrollment.Course.course_name}")
+    except Exception as e:
+        print(f"\n[ERROR] Read operation failed. Reason: {e}")
+    finally:
+        session.close()
+
+def update_85():
+    session=SessionLocal()
+    try :
+        res= session.query(Student).filter(Student.email == "steve.s@college.edu").first()
+        if res:
+            print(f"before updation {res.email}")
+            res.email="steve.smith@college.edu"
+            session.commit()
+            print(f"after updation {res.email}")
+        else:
+            return "No student found with the specified email."
+    except Exception as e:
+        session.rollback()
+        print(f"\n[ERROR] Update operation failed. Reason: {e}")
+    finally:
+        session.close()
+
+def delete_86():
+    session=SessionLocal()
+    try:
+        res= session.query(Enrollment).filter(Enrollment.enrollment_id==1).first()
+        if res:
+            print(f"to be deleted from enrollments {res.enrollment_id}")
+            session.delete(res)
+            session.commit()
+        else:
+            return "No enrollment found with the specified ID."
+    except Exception as e:  
+        session.rollback()
+        print(f"\n[ERROR] Delete operation failed. Reason: {e}")
+    finally:
+        session.close()
+
+
+
 if __name__ == "__main__":
-    mass_seed_database()
+    #mass_seed_database()
+    #read_83()
+    #read_84()
+    #update_85()
+    delete_86()
