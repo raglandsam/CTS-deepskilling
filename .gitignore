@@ -13,6 +13,11 @@ lib/
 include/
 share/
 
+
+
+# --- Environment files
+.env
+
 # --- Python Compiled Bytecode & Runtime Caches ---
 __pycache__/
 *.pyc
